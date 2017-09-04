@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { ButtonToolbar, Button } from 'react-bootstrap';
 
 const display = {
     display: 'block'
@@ -26,18 +27,19 @@ class Modal extends Component {
         var modal = [];
         modal.push(
             <div className="modal" style={this.state.toggle ? display : hide}>
-                <div className="modal-content">
-                    <h4>Vood Modal</h4>
-                </div>
                 <div className="modal-footer">
-                    <a className="btn-flat" onClick={this.toggle}>Close</a>
+                    <ButtonToolbar>
+                        <Button className="btn btn-primary btn-lg" onClick={this.toggle}>End Demo</Button>
+                    </ButtonToolbar>
                 </div>
             </div>
         );
         return (
-            <div>
-                <a className="btn" onClick={this.toggle}>{this.state.toggle ? 'Close modal' : 'Open Modal'}</a>
+            <div className="buttons">
+                <ButtonToolbar>
+                <Button className="btn btn-primary btn-lg demo" onClick={this.toggle}>{this.state.toggle ? 'End Demo' : 'Start Demo'}</Button>
                 {modal}
+                </ButtonToolbar>
             </div>
         );
     }
